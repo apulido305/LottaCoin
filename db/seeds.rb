@@ -1,12 +1,5 @@
 User.destroy_all
 
-User.create( username: "simba",
-             email: "simba@gmail.com",
-             password: "password",
-             password_confirmation: "password"
-             )
-
-
 Coin.destroy_all
 
 Coin.create( url: "/coins/btc/overview", imageurl: "/media/19633/btc.png", name: "BTC", symbol: "BTC", coinname: "Bitcoin", fullname: "Bitcoin (BTC)", totalcoinsupply: "21000000",  )

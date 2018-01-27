@@ -4,16 +4,16 @@
   <%= form_for(:user, :url => {:controller => 'users', :action => 'create'}) do |form| %>
   <p>Username:</br> <%= form.text_field :username %></p>
   <p>Email:</br> <%= form.text_field :email %></p>
-  <p>Username:</br> <%= form.text_field :password %></p>
-  <p>Username:</br> <%= form.text_field :password_confirmation %></p>
+  <p>Password:</br> <%= form.text_field :password %></p>
+  <p>Password Confirmation:</br> <%= form.text_field :password_confirmation %></p>
   <%= form.submit :Signup %>
   <% end %>
 
   <% if @user.errors.any?%>
   <ul class="Signup_Errors">
-  <%# for message_error in @users.errors.full_messages %>
-  <li> * <%#= message_error %> </li>
-  <%# end %>
+  <% for message_error in @users.errors.full_messages %>
+  <li> * <%= message_error %> </li>
+  <% end %>
   <% end %>
   <p>Already Registerd? <%= link_to "Log in", login_path %></p
 </div>
