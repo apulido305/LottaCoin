@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180126022832) do
+ActiveRecord::Schema.define(version: 20180127164713) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,7 +20,19 @@ ActiveRecord::Schema.define(version: 20180126022832) do
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "url"
+    t.string "imageurl"
+    t.string "coinname"
+    t.string "fullname"
+    t.string "totalcoinsupply"
+    t.string "symbol"
     t.index ["user_id"], name: "index_coins_on_user_id"
+  end
+
+  create_table "coins_users", id: false, force: :cascade do |t|
+    t.bigint "coin_id", null: false
+    t.bigint "user_id", null: false
+    t.index ["coin_id", "user_id"], name: "index_coins_users_on_coin_id_and_user_id"
   end
 
   create_table "users", force: :cascade do |t|
