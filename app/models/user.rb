@@ -1,6 +1,6 @@
 class User < ApplicationRecord
   attr_accessor :password
-
+  has_and_belongs_to_many :coins
   before_save :encrypt_password
   after_save :clear_password
 
